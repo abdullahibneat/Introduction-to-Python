@@ -95,6 +95,3 @@ else:
             if (onecoffee == 'yes'):
                 totalpoints = totalpoints - 10
                 print('Here you go!')
-                break
-            else:
-                break
