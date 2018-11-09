@@ -20,7 +20,8 @@ print("""\
 sleep(0.75)
 
 # Enter customer name to retreive details
-customername = input('Please enter your name: ')
+inputname = input('Please enter your student id: ')
+customername = inputname.split(".", 1)[0]
 
 # In a real system, the name would be looked up inside a database to retrieve the customer's points. In this case the points are generated randomly.
 totalpoints = randint(0, 25)
@@ -33,14 +34,14 @@ sleep(0.5)
 # Explanation of the point sysem
 print("""\
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 | Each time you purchase a coffe, you get * 2 * points |
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 """)
 sleep(0.5)
 print("""\
-| You get a free coffe when you reach * 10 * points. |
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+|  You get a free coffe when you reach * 10 * points.  |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 """)
 sleep(1)
 
@@ -49,10 +50,14 @@ while (totalpoints >= 10):
 
     # Calculate numbers of free coffees available
     freecoffee = int(totalpoints / 10)
+    if (freecoffee != 1):
+        freecoffeetext = 'free coffees! |'
+    else:
+        freecoffeetext = 'free coffee! |'
 
     # Show a message
     print('====================================================')
-    print('|  Congratulations! You are due', freecoffee, 'free coffee(s)! |')
+    print('|  Congratulations! You are due', freecoffee, freecoffeetext)
     print('====================================================')
     sleep(0.5)
 
@@ -66,7 +71,26 @@ while (totalpoints >= 10):
         totalpoints = totalpoints - 10
 
         # Give customer one free coffee
-        print('Here you go!')
+        print('Here you go')
+        sleep(0.4)
+        print("""
+            ..
+          ..  ..
+                ..
+                 ..
+                ..
+               ..
+             ..
+    ##       ..    ####
+    ##.............##  ##
+    ##.............##   ##
+    ##.............## ##
+    ##.............###
+     ##...........##
+      #############
+      #############
+    #################
+    """)
 
     # Otherwise
     else:
@@ -77,13 +101,32 @@ while (totalpoints >= 10):
 else:
 
     # Prompt to buy coffe
-    askcoffee = input('Would you like 1 coffe now? (yes / no) ')
+    askcoffee = input('Would you like to buy 1 coffe now? (yes / no) ')
 
     # If customer wants coffee
     if (askcoffee == 'yes'):
 
         # Give coffee
         print('Here you go')
+        sleep(0.4)
+        print("""
+            ..
+          ..  ..
+                ..
+                 ..
+                ..
+               ..
+             ..
+    ##       ..    ####
+    ##.............##  ##
+    ##.............##   ##
+    ##.............## ##
+    ##.............###
+     ##...........##
+      #############
+      #############
+    #################
+    """)
 
         # Award 2 points
         totalpoints = totalpoints + 2
@@ -94,4 +137,23 @@ else:
             onecoffee = input('You are due 1 free coffee! Would you like it now? (yes / no): ')
             if (onecoffee == 'yes'):
                 totalpoints = totalpoints - 10
-                print('Here you go!')
+                print('Here you go')
+                sleep(0.4)
+                print("""
+                ..
+              ..  ..
+                    ..
+                     ..
+                    ..
+                   ..
+                 ..
+        ##       ..    ####
+        ##.............##  ##
+        ##.............##   ##
+        ##.............## ##
+        ##.............###
+         ##...........##
+          #############
+          #############
+        #################
+        """)
