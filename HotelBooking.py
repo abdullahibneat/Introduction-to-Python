@@ -48,7 +48,15 @@ roomsBooked = [
 def changePrice():
     print();
     global roomPrice;
-    newPrice = int(input('Enter new per-night price: '))
+
+    while True:
+        try:
+            newPrice = int(input('Enter new per-night price: '))
+            break
+        except ValueError:
+            print()
+            print('Invalid input. Please input numbers only.');
+            print()
     roomPrice = newPrice
     print()
     print('Price changed successfully.')
@@ -57,12 +65,29 @@ def changePrice():
 
 def newBooking():
     print()
-    # Ask for booking start date
-    bookingStart = input('start date, in dd-mm-yyyy format: ')
 
-    # Ask for booking end date
-    bookingEnd = input('end date, in dd-mm-yyyy format: ')
-    print()
+    while True:
+        try:
+            # Ask for booking start date
+            bookingStart = input('Start date, in dd-mm-yyyy format: ')
+            toDate(bookingStart)
+            print()
+            break
+        except ValueError:
+            print()
+            print('Invalid date. Ensure you type the date in the following format: DD-MM-YYYY')
+            print()
+
+    while True:
+        try:
+            # Ask for booking end date
+            bookingEnd = input('End date, in dd-mm-yyyy format: ')
+            toDate(bookingEnd)
+            break
+        except ValueError:
+            print()
+            print('Invalid date. Ensure you type the date in the following format: DD-MM-YYYY')
+            print()
 
     # Work out booking duration
     bookingStay = (toDate(bookingEnd) - toDate(bookingStart)).days + 1
@@ -88,7 +113,7 @@ def newBooking():
             bookingConfirm = input('Confirm booking? (y/n) ')
             print()
 
-            if bookingConfirm == 'y':
+            if bookingConfirm.lower() == 'y' or bookingConfirm.lower() == 'yes':
 
                 # Ask for customer details:
                 customerName = input('Enter name and surname of customer: ')
@@ -101,7 +126,6 @@ def newBooking():
                 print(customerName, 'has been successfully booked from', bookingStart, 'to', bookingEnd, '.')
 
                 # Return to main menu
-                print()
                 mainMenu();
 
             else:
