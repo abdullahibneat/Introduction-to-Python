@@ -11,15 +11,33 @@ while True:
     # Input assignment marks
     Assignment = int(input('Assignment marks: '))
 
-    # If exam mark > 100
-    while (Exam > 100):
-        # Keep asking for correct mark.
-        Exam = int(input('Error: Exam marks can\'t exceed 100 marks. Please enter correct marks: '))
+    # If exam mark > 100 or negative
+    while (Exam > 100 or Exam < 0):
+
+        # If input is more than 100
+        if (Exam > 100):
+
+            # Keep asking for correct mark.
+            Exam = int(input('Error: Exam marks can\'t exceed 100 marks. Please enter correct marks: '))
+
+        # If input is negative
+        elif (Exam < 0):
+            # Keep asking for correct mark.
+            Exam = int(input('Error: Exam marks can\'t be negative. Please enter correct marks: '))
 
     # If assignment mark > 100
-    while (Assignment > 100):
-        # Keep asking for correct mark
-        Assignment = int(input('Error: Assignment marks can\'t exceed 100 marks. Please enter correct marks: '))
+    while (Assignment > 100 or Assignment < 0):
+
+        # If input is more than 100
+        if (Assignment > 100):
+
+            # Keep asking for correct mark.
+            Assignment = int(input('Error: Assignment marks can\'t exceed 100 marks. Please enter correct marks: '))
+
+        # If input is negative
+        elif (Assignment < 0):
+            # Keep asking for correct mark.
+            Assignment = int(input('Error: Assignment marks can\'t be negative. Please enter correct marks: '))
 
     # Multiply marks by weight percentage
     ExamMarks = Exam * 0.6
