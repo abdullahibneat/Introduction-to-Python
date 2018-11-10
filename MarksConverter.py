@@ -1,9 +1,13 @@
+from termcolor import colored
+
 # Program name
 print("""
 +----------------------+
 | Exam marks converter |
 +----------------------+
 """)
+
+# Create loop for converter program
 while True:
     # Input exam marks
     Exam = int(input('Exam marks: '))
@@ -67,8 +71,11 @@ while True:
     # Grade less than 40
     else:
 
-        # Retake exam
-        print(Grade, 'marks. Retake')
+        # Blink RETAKE! with red colour
+        retake = colored('Retake!', 'red', attrs=['reverse', 'blink'])
+
+        # Warn retake exam
+        print(Grade, 'marks. ', retake)
 
     # Add a space between the while instances
     if (Grade):
